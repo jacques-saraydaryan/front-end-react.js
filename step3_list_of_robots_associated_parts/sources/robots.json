@@ -1,0 +1,8 @@
+{"robots":[
+    {"id":1,"title":"robotA","visual_type":"img","visual_src":"https://www.robot-advance.com/EN/ori-wowwee-mip-white-robot-1281_1613.jpg"},
+    {"id":2,"title":"robotB","visual_type":"video","visual_src":"https://www.youtube.com/embed/ePINYZK4p5Y"},
+    {"id":3,"title":"robotC","visual_type":"img","visual_src":"http://www.fragger.fr/wp-content/uploads/2011/11/asimo12.jpg"},
+ {"id":4,"title":"robotD","visual_type":"img","visual_src":"https://www.meccanodirect.fr/media/catalog/product/cache/1/small_image/300x/1dc95be7fcd711447555fcdcdbbd2c99/_/6/_6028424_meccano_tech_meccanoid_2.0_prdt.jpg"},
+    {"id":5,"title":"robotE","visual_type":"video","visual_src":"https://www.youtube.com/embed/29MD29ekoKI"}
+    ]
+}
