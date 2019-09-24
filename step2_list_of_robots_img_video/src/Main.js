@@ -12,7 +12,7 @@ class Main extends Component {
         super(props);
         let temp_robot_list;
         
-        temp_robot_list=jsonSource;
+        temp_robot_list=jsonSource.default;
         console.log(temp_robot_list);
         
         
