@@ -1,0 +1,75 @@
+{"robots":[
+    {
+        "id":1,
+        "title":"robotA",
+        "visual_type":"img",
+        "visual_src":"https://www.robot-advance.com/EN/ori-wowwee-mip-white-robot-1281_1613.jpg",
+        "parts":["A1","A1","A1","A1","A5"]
+    },
+    {
+        "id":2,
+        "title":"robotB",
+        "visual_type":"video",
+        "visual_src":"https://www.youtube.com/embed/ePINYZK4p5Y",
+        "parts":["A2","A2","A5"]
+    },
+    {
+        "id":3,
+        "title":"robotC",
+        "visual_type":"img",
+        "visual_src":"http://www.fragger.fr/wp-content/uploads/2011/11/asimo12.jpg",
+        "parts":["A3","A3","A3","A7","A5"]
+    },
+    {
+        "id":4,
+        "title":"robotD",
+        "visual_type":"img",
+        "visual_src":"https://www.meccanodirect.fr/media/catalog/product/cache/1/small_image/300x/1dc95be7fcd711447555fcdcdbbd2c99/_/6/_6028424_meccano_tech_meccanoid_2.0_prdt.jpg",
+        "parts":["A3","A1","A2","A7","A5"]
+    },
+    {
+        "id":5,
+        "title":"robotE",
+        "visual_type":"video",
+        "visual_src":"https://www.youtube.com/embed/29MD29ekoKI",
+        "parts":["A3","A1","A2","A7","A5"]
+    }
+    ],
+ "parts":[
+     {
+        "id":"A1",
+        "title":"WheelA",
+        "price":10
+     
+    },
+     {
+        "id":"A2",
+        "title":"WheelB",
+        "price":15
+     
+    },
+     {
+        "id":"A3",
+        "title":"WheelC",
+        "price":150
+     
+    },
+     {
+        "id":"A4",
+        "title":"Contrôleur de Servomoteurs USB SSC-32U Lynxmotion",
+        "price":57
+     
+    },
+     {
+        "id":"A5",
+        "title":"Ordinateur Monocarte Raspberry Pi 3",
+        "price":52
+     
+    },
+     {
+        "id":"A7",
+        "title":"Microcontrôleur Arduino Uno R3 USB",
+        "price":27
+    }
+ ]
+}
