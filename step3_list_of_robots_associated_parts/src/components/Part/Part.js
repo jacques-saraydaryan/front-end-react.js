@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Description from './containers/Description';
-import Visual from './containers/Visual';
 
 
 class Part extends Component {

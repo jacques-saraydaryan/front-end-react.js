@@ -13,7 +13,8 @@ class Main extends Component {
         super(props);
         let temp_robot_list;
         
-        temp_robot_list=jsonSource;
+        //TODO weird behavior when imported json check why default
+        temp_robot_list=jsonSource.default;
         console.log(temp_robot_list);
         
         
