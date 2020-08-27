@@ -1,16 +1,9 @@
-import React, { Component } from 'react';
-import MyObjectVisual from './content/MyObjectVisual';
+import React from 'react';
+import {MyObjectVisual} from './content/MyObjectVisual';
 
-class MyObject extends Component {
-    constructor(props){
-        super(props);
-    }
+export const MyObject = (props) => {
+  return (
+    <MyObjectVisual value={props.value}></MyObjectVisual>
+);
 
-  render() {
-    return (
-        <MyObjectVisual value={this.props.value}></MyObjectVisual>
-    );
-  }
 }
-
-export default MyObject;

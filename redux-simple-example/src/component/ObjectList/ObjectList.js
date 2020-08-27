@@ -1,17 +1,12 @@
 import React, { Component } from 'react';
-import MyObject from '../MyObject/MyObject';
-//import needed to connect current component to the store
-import { connect } from 'react-redux';
+import {MyObject}  from '../MyObject/MyObject';
+//useSelector to connect the current function to the store and get current state
+import {useSelector } from "react-redux";
 
-
-class ObjectList extends Component {
-    constructor(props){
-        super(props);
-    }
-
-  render() {
-      let array_value=this.props.objectList;
-      let key_indice=0;
+export const ObjectList = (props) => {
+    //useSelector get current store state of valueListReducer and especially the valueList
+    let array_value = useSelector(state => state.valueListReducer.valueList);
+    let key_indice=0;
     return (
         <div className="App">
             <table className="table">
@@ -29,18 +24,9 @@ class ObjectList extends Component {
                 <td><MyObject value={item} ></MyObject></td>
             </tr>
         )}
-
                 </tbody>
             </table>
         </div>
     );
-  }
 }
 
-//link data from the store to local props
-const mapStateToProps = (state, ownProps) => {
-    return {
-        objectList: state.valueListReducer.valueList
-    } };
-
-export default connect(mapStateToProps)(ObjectList);

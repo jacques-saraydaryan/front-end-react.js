@@ -1,78 +1,75 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { useState  } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import {addItem} from '../../actions';
 import {removeItem} from '../../actions';
 
 
-class OperationObject extends Component {
-    constructor(props){
-        super(props);
-        this.state={
-            value:'',
+export const OperationObject = (props) =>{
+
+    const default_msg="Please enter a letter"
+    const [content, setContent] = useState("");
+    const [data, setData] = useState("");
+    const dispatch = useDispatch();
+
+    function handleChange(ev){
+        const current_value=ev.target.value
+        setData(current_value);
+        if( ! /^([a-zA-Z]+)$/.test(current_value) ){
+            setContent(" input need to be in [a-zA-Z]")
+            console.log(content)
+        }else{
+            setContent("")
         }
-
-        //bind local fonction to use this. in function
-        this.handleChange=this.handleChange.bind(this);
-        this.handleclick=this.handleclick.bind(this);
     }
 
-    handleChange(ev){
-        this.setState({value:ev.target.value});
-    }
-
-    handleclick(){
+    function handleclick(){
         //depending the type of action distance corresponding action
-        switch (this.props.type) {
+        switch (props.type) {
             case 'ADD':
                 //call the store and dispatch the addItem action
-                this.props.dispatch(addItem(this.state.value));
+                dispatch(addItem(data));
                 return
 
             case 'REMOVE':
                 //call the store and dispatch the removeItem action
-                this.props.dispatch(removeItem(this.state.value));
+                dispatch(removeItem(data));
                 return
 
             default:
-            this.props.dispatch(addItem(this.state.value));
+                dispatch(addItem(data));
                 return
         }
     }
 
-  render() {
     let display;
     //conditional rendering depending of the action type
-    switch (this.props.type) {
+    switch (props.type) {
         case 'ADD':
             display=(
              <div>
                 <div className="form-group">
                     <label htmlFor="valueId">VALUE TO ADD</label>
-                    <input type="email" className="form-control" id="valueId" aria-describedby="emailHelp" placeholder="Enter the value to Add" onChange={this.handleChange}></input>
+                    <label htmlFor="valueId">{content}</label>
+                    <input type="email" className="form-control" id="valueId" aria-describedby="txtHelp" placeholder="Enter the value to Add" onChange={handleChange}></input>
                 </div>
-                <button className="btn btn-primary" onClick={this.handleclick}>ADD</button>
+                <button className="btn btn-primary" onClick={handleclick}>ADD</button>
             </div>
             );
         break;
-
 
         case 'REMOVE':
             display=(
                 <div>
                     <div className="form-group">
                         <label htmlFor="valueId">VALUE TO REMOVE</label>
-                        <input type="email" className="form-control" id="valueId" aria-describedby="emailHelp" placeholder="Enter the value to Remove" onChange={this.handleChange}></input>
+                        <label htmlFor="valueId">{content}</label>
+                        <input type="email" className="form-control" id="valueId" aria-describedby="emailHelp" placeholder="Enter the value to Remove" onChange={handleChange}></input>
                     </div>
-                    <button className="btn btn-secondary" onClick={this.handleclick}>Remove</button>
+                    <button className="btn btn-secondary" onClick={handleclick}>Remove</button>
                 </div>
             )
         break;
         }
 
     return ( display  );
-  }
 }
-
-//connect current component to the store
-// no need to map store value to local propos
-export default connect()(OperationObject);

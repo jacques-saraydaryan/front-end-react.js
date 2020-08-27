@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import ObjectList from './component/ObjectList/ObjectList'
-import OperationObject from './component/OperationObject/OperationObject'
+import {ObjectList} from './component/ObjectList/ObjectList'
+import {OperationObject} from './component/OperationObject/OperationObject'
 import './lib/css/bootstrap.min.css';
 
 //import needed to use redux with react.js
