@@ -1,38 +1,28 @@
 import React, { Component } from 'react';
+export const Visual=(props) =>{
 
-class Visual extends Component {
-    constructor(props) {
-        super(props);        
-    }
-  
-  render() {
-      let render_visual;
-      switch(this.props.type){
+    let render_visual;
+      switch(props.type){
         case "img":
             render_visual=(
                 <img 
                     className='imgCard' 
-                    src={this.props.src}  
+                    src={props.src}  
                 />
                 );
         break;
         case "video":
               render_visual=(
               <object  width="100%" height="100%"
-                        data={this.props.src}>
+                        data={props.src}>
                 </object>
                 );
         break;
-              
         }
-      
-      
-    return (
-            <div className="thumbnail">
-                {render_visual}
-            </div>            
-    );
-  }
-}
 
-export default Visual;
+    return(
+        <div className="thumbnail">
+                {render_visual}
+        </div>   
+    );
+}
