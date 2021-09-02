@@ -1,26 +1,14 @@
 import React, { Component } from 'react';
-import Robot from '../Robot/Robot';
+import {Robot} from '../Robot/Robot';
 
-class LeftSide extends Component {
-    //class constructor whith given properties
-    constructor(props) {
-        super(props);        
-
-    }
-  
-    
-  //render function use to update the virtual dom
-  render() {
-      
-    return (
+//const json = require('./sources/robots.json');
+//Create a react component with props
+export const LeftSide= (props) =>{
+return(
             <div>
                <Robot
-                    robot={this.props.robots}
+                    robot={props.robots}
                 />
             </div>
-    );
-  }
+      );
 }
-
-//export the current classes in order to be used outside
-export default LeftSide;
