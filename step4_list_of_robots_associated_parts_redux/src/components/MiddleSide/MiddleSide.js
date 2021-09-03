@@ -1,31 +1,25 @@
-import React, { Component } from 'react';
-import Part from '../Part/Part';
-import { connect } from 'react-redux';
+import React from 'react';
+import {Part} from '../Part/Part';
+import { useSelector } from 'react-redux';
+export const MiddleSide =(props)=>{
+    let parts = useSelector(state => state.robotReducer.parts);
 
-class MiddleSide extends Component {
-    //class constructor whith given properties
-    constructor(props) {
-        super(props);
-        this.state = {};
-        this.getAllPartRender=this.getAllPartRender.bind(this);
-        this.getPartObject=this.getPartObject.bind(this);
-    }
-    
-    getPartObject(id){
-        for(var i=0;i<this.props.partlists.length;i++){
-            if(this.props.partlists[i].id==id){
-                return this.props.partlists[i];
+
+    function getPartObject(id){
+        for(var i=0;i<props.partlists.length;i++){
+            if(props.partlists[i].id==id){
+                return props.partlists[i];
             }
         }
         return {};
     }
   
- getAllPartRender(){
+ function getAllPartRender(){
      let array_render=[];
-     if (this.props.parts == undefined)
+     if (parts == undefined)
          return ;
-     for(var i=0;i<this.props.parts.length;i++){
-         let obj=this.getPartObject(this.props.parts[i]);
+     for(var i=0;i<parts.length;i++){
+         let obj=getPartObject(parts[i]);
          array_render.push(
              <Part
                 key={i}
@@ -35,26 +29,11 @@ class MiddleSide extends Component {
      }
      return array_render;
  }
-    
-  //render function use to update the virtual dom
-  render() {
-      const display_list= this.getAllPartRender();
-    return (
-            <div>
-               {display_list}
-            </div>
-    );
-  }
+
+ const display_list= getAllPartRender();
+ return (
+    <div>
+       {display_list}
+    </div>
+);
 }
-
-
-const mapStateToProps = (state, ownProps) => {
-  return {
-    parts: state.robotReducer.parts
-  }
-};
-
-export default connect(mapStateToProps)(MiddleSide);
-
-//export the current classes in order to be used outside
-//export default MiddleSide;
