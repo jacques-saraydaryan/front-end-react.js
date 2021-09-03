@@ -1,30 +1,21 @@
 import React, { Component } from 'react';
-import Part from '../Part/Part';
-
-class MiddleSide extends Component {
-    //class constructor whith given properties
-    constructor(props) {
-        super(props);        
-        this.getAllPartRender=this.getAllPartRender.bind(this);
-        this.getPartObject=this.getPartObject.bind(this);
-    }
-    
-    
-    getPartObject(id){
-        for(var i=0;i<this.props.partlists.length;i++){
-            if(this.props.partlists[i].id==id){
-                return this.props.partlists[i];
+import {Part} from '../Part/Part';
+export const MiddleSide =(props)=>{
+    function getPartObject(id){
+        for(var i=0;i<props.partlists.length;i++){
+            if(props.partlists[i].id==id){
+                return props.partlists[i];
             }
         }
         return {};
     }
   
- getAllPartRender(){
+ function getAllPartRender(){
      let array_render=[];
-     if (this.props.parts == undefined)
+     if (props.parts == undefined)
          return ;
-     for(var i=0;i<this.props.parts.length;i++){
-         let obj=this.getPartObject(this.props.parts[i]);
+     for(var i=0;i<props.parts.length;i++){
+         let obj=getPartObject(props.parts[i]);
          array_render.push(
              <Part
                 key={i}
@@ -34,17 +25,11 @@ class MiddleSide extends Component {
      }
      return array_render;
  }
-    
-  //render function use to update the virtual dom
-  render() {
-      const display_list= this.getAllPartRender();
-    return (
-            <div>
-               {display_list}
-            </div>
-    );
-  }
-}
 
-//export the current classes in order to be used outside
-export default MiddleSide;
+ const display_list= getAllPartRender();
+ return (
+    <div>
+       {display_list}
+    </div>
+);
+}
