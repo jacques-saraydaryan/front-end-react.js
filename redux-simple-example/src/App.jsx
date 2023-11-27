@@ -1,30 +1,25 @@
 import React, { Component } from 'react';
+import { useDispatch, useSelector } from "react-redux";
 import {ObjectList} from './component/ObjectList/ObjectList'
 import {OperationObject} from './component/OperationObject/OperationObject'
 import './lib/css/bootstrap.min.css';
 
-//import needed to use redux with react.js
-import { createStore } from 'redux';
-import myReducers from './reducers'
-import { Provider } from 'react-redux';
-
 //import action to load the first time the list of values
-import {loadItems} from './actions'
+import { load_items } from './slices/valueListSlice';
 
 //create a store and associate reducers to it
-const store = createStore(myReducers);
 
-class App extends Component {
-  constructor(props){
-    super(props);
 
+export const App = (props) =>{
     //call the action loadItems to load inital items
     let list_items=['A','B','C','D','E','F'];
-    store.dispatch(loadItems(list_items));
-  }
-  render() {
+    const dispatch = useDispatch();                
+
+
+    dispatch(load_items({itemList:list_items}));
+
+
     return (
-      <Provider store={store} >
         <div className="App">
           <div className="row">
                 <div className="col-6">
@@ -41,9 +36,6 @@ class App extends Component {
                 </div>
           </div>
         </div>
-      </Provider>
     );
-  }
 }
 
-export default App;
