@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import {Label} from './containers/Label';
 import {Visual} from './containers/Visual';
-import {setSelectedRobot} from '../../actions';
+import { update_selected_robot } from '../../slices/robotSlice';
 import { useDispatch } from 'react-redux';
 
 export const Robot =(props) =>{
@@ -9,7 +9,7 @@ export const Robot =(props) =>{
     const dispatch = useDispatch();
 
     function handleOnRobotSelected(robot_obj){
-        dispatch(setSelectedRobot(robot_obj));   
+        dispatch(update_selected_robot(robot_obj));   
     }
     return (
         <div className="panel panel-default" onClick={() => handleOnRobotSelected(props.robot)}>

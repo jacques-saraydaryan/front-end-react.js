@@ -2,14 +2,14 @@ import React from 'react';
 import { useDispatch } from 'react-redux';
 import {Description} from './containers/Description';
 
-import { setSelectedPart } from '../../actions'
+import { update_selected_part } from '../../slices/partSlice';
 
 
 export const Part=(props)=>{
     const dispatch=useDispatch();
 
     function handleOnPartSelected(part_obj){
-       dispatch(setSelectedPart(part_obj));   
+       dispatch(update_selected_part(part_obj));   
     }
 
     return (

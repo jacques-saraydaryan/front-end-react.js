@@ -4,7 +4,7 @@ import { useSelector } from 'react-redux';
 
 
 export const RightSide=(props)=>{
-  let part = useSelector(state=> state.partReducer);
+  let part = useSelector(state=> state.partReducer.current_part);
 
   if(part.id == undefined){
     return <div></div>;

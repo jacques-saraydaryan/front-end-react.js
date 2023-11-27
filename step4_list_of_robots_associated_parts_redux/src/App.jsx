@@ -1,20 +1,14 @@
 import React, {useState} from 'react';
 import './lib/bootstrap-3.3.7-dist/css/bootstrap.min.css';
 import * as jsonSource from './sources/robots_parts.json';
-
+import { useDispatch, useSelector } from "react-redux";
 import {LeftSide} from './components/LeftSide/LeftSide';
 import {MiddleSide} from './components/MiddleSide/MiddleSide';
 import {RightSide} from './components/RightSide/RightSide';
 
-import { Provider } from 'react-redux';
-import { createStore } from 'redux';
-import globalReducer from './reducers';
 
 
-const store = createStore(globalReducer);
-
-
-export const Main =(props) =>{
+export const App =(props) =>{
     const [robots, setRobots] = useState(jsonSource.default);
     const [selectedRobotId, setSelectedRobotId] = useState(0);
     const [selectedParts, setSelectedParts] = useState([]);
@@ -37,7 +31,6 @@ export const Main =(props) =>{
     }
 
     return (
-        <Provider store={store} >
             <div className="container-fluid">
             <div className="row">
                 <h1> Welcome to robot shop</h1>
@@ -59,6 +52,5 @@ export const Main =(props) =>{
                 </div>
 
             </div>
-        </Provider>
       );
 }

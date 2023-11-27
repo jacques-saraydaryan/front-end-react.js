@@ -2,9 +2,9 @@ import React from 'react';
 import {Part} from '../Part/Part';
 import { useSelector } from 'react-redux';
 export const MiddleSide =(props)=>{
-    let parts = useSelector(state => state.robotReducer.parts);
+     let current_robot = useSelector(state => state.robotReducer.current_robot);
 
-
+     let parts = current_robot.parts
     function getPartObject(id){
         for(var i=0;i<props.partlists.length;i++){
             if(props.partlists[i].id==id){
