@@ -6,7 +6,7 @@ import {LeftSide} from './components/LeftSide/LeftSide';
 
 //const json = require('./sources/robots.json');
 //Create a react component with props
-export const Main= (props) =>{
+export const App= (props) =>{
 
  //Create a local state with as initial value a json object
    const [robots, setRobots] = useState(jsonSource.default);

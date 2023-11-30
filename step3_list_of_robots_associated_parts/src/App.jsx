@@ -6,7 +6,7 @@ import {LeftSide} from './components/LeftSide/LeftSide';
 import {MiddleSide} from './components/MiddleSide/MiddleSide';
 
 
-export const Main =(props) =>{
+export const App =(props) =>{
     const [robots, setRobots] = useState(jsonSource.default);
     const [selectedRobotId, setSelectedRobotId] = useState(0);
     const [selectedParts, setSelectedParts] = useState([]);

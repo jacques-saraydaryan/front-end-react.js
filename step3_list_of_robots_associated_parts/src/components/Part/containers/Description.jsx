@@ -4,7 +4,7 @@ import {Price} from './Price';
 export const Description = (props)=>{
 
     return (
-        <table class="table">
+        <table className="table">
              <tr> 
                  <td> ID </td>
                  <td>{props.part.id}</td>
